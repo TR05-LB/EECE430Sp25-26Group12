@@ -6,7 +6,7 @@
 
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/EECE430Sp25-26GroupXX.git
+git clone https://github.com/TR05-LB/EECE430Sp25-26Group12.git
 cd EECE430Sp25-26GroupXX
 
 docker build -t playerlist-django .
