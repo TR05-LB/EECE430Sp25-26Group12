@@ -7,7 +7,7 @@
 
 ```bash
 git clone https://github.com/TR05-LB/EECE430Sp25-26Group12.git
-cd EECE430Sp25-26GroupXX
+cd EECE430Sp25-26Group12
 
 docker build -t playerlist-django .
 
