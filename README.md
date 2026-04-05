@@ -5,7 +5,7 @@
 ```bash
 docker build -t playerlist-django .
 docker run -p 8000:8000 playerlist-django
-
+```
 
 
 
@@ -20,4 +20,5 @@ cd EECE430Sp25-26GroupXX
 docker build -t playerlist-django .
 
 docker run -p 8000:8000 playerlist-django
+```
 
