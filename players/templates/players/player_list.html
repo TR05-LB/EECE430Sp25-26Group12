@@ -1,0 +1,54 @@
+{% extends 'players/base.html' %}
+
+{% block title %}Player List{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Volleyball Players</h1>
+    <a href="{% url 'player_create' %}" class="btn btn-primary">➕ Add New Player</a>
+</div>
+
+{% if players %}
+    <div class="table-responsive">
+        <table class="table table-hover table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Date Joined</th>
+                    <th>Salary</th>
+                    <th>Contact Person</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for player in players %}
+                <tr>
+                    <td>{{ player.id }}</td>
+                    <td>
+                        <a href="{% url 'player_detail' player.pk %}" class="text-decoration-none">
+                            <strong>{{ player.name }}</strong>
+                        </a>
+                    </td>
+                    <td><span class="badge bg-info">{{ player.get_position_display }}</span></td>
+                    <td>{{ player.date_joined|date:"M d, Y" }}</td>
+                    <td>${{ player.salary|floatformat:2 }}</td>
+                    <td>{{ player.contact_person }}</td>
+                    <td>
+                        <a href="{% url 'player_detail' player.pk %}" class="btn btn-sm btn-info">👁️ View</a>
+                        <a href="{% url 'player_update' player.pk %}" class="btn btn-sm btn-warning">✏️ Edit</a>
+                        <a href="{% url 'player_delete' player.pk %}" class="btn btn-sm btn-danger">🗑️ Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% else %}
+    <div class="alert alert-info">
+        <h4>No players found</h4>
+        <p>Start by <a href="{% url 'player_create' %}">adding a new player</a>.</p>
+    </div>
+{% endif %}
+{% endblock %}

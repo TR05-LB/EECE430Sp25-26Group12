@@ -1,0 +1,32 @@
+{% extends 'players/base.html' %}
+
+{% block title %}Delete Player{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card border-danger">
+            <div class="card-header bg-danger text-white">
+                <h2>⚠️ Confirm Deletion</h2>
+            </div>
+            <div class="card-body">
+                <p>Are you sure you want to delete the following player?</p>
+                
+                <div class="alert alert-warning">
+                    <strong>Name:</strong> {{ player.name }}<br>
+                    <strong>Position:</strong> {{ player.get_position_display }}<br>
+                    <strong>Date Joined:</strong> {{ player.date_joined|date:"M d, Y" }}
+                </div>
+
+                <p class="text-danger"><strong>This action cannot be undone!</strong></p>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">🗑️ Yes, Delete</button>
+                    <a href="{% url 'player_list' %}" class="btn btn-secondary">❌ Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
