@@ -1,12 +1,5 @@
 # Player List Django App
 
-## Run with Docker
-
-```bash
-docker build -t playerlist-django .
-docker run -p 8000:8000 playerlist-django
-```
-
 
 
 # **PART 3 — Run Docker image from GitHub**
